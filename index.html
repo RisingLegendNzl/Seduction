@@ -76,7 +76,6 @@
 <body class="text-gray-300">
 
     <div id="app-container" class="min-h-screen bg-gray-900">
-        <!-- Header -->
         <header class="bg-gray-800/50 backdrop-blur-sm shadow-lg sticky top-0 z-50">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
@@ -93,7 +92,6 @@
             </div>
         </header>
         
-        <!-- Mobile Bottom Navigation -->
         <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-gray-800 shadow-t-lg z-50 flex justify-around p-2">
             <a class="nav-item flex-1 text-center p-2 text-xs active" data-target="home">Home</a>
             <a class="nav-item flex-1 text-center p-2 text-xs" data-target="archetypes">Archetypes</a>
@@ -104,9 +102,7 @@
         </nav>
 
 
-        <!-- Main Content -->
         <main class="container mx-auto p-4 sm:p-6 lg:p-8 pb-24 md:pb-8">
-            <!-- Home Section -->
             <section id="home" class="content-section active fade-in">
                 <div class="bg-gray-800 p-8 rounded-lg shadow-2xl border border-gray-700">
                     <h2 class="text-4xl font-title text-amber-400 mb-4">Welcome to the Art of Seduction</h2>
@@ -119,43 +115,39 @@
                         <li><strong class="text-amber-400">Practice:</strong> Test your knowledge with interactive scenarios.</li>
                         <li><strong class="text-amber-400">Journal:</strong> Keep a private log of your observations and experiences.</li>
                     </ul>
-                    <p class="text-sm italic text-gray-500">"Seduction is a game of attention, of slowly bringing a person's mind to one point: you." - Robert Greene</p>
+                    <div class="mt-8 text-center">
+                        <a href="https://amzn.to/4kTmyiv" target="_blank" rel="noopener noreferrer" class="inline-block bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold py-3 px-6 rounded-lg transition shadow-lg hover:shadow-amber-500/20">
+                            Get the Book on Amazon
+                        </a>
+                        <p class="text-xs text-gray-500 mt-2">(As an Amazon Associate, I earn from qualifying purchases.)</p>
+                    </div>
                 </div>
             </section>
 
-            <!-- Archetypes Section -->
             <section id="archetypes" class="content-section">
                 <h2 class="text-4xl font-title text-amber-400 mb-6">The 9 Seducer Archetypes</h2>
                 <div id="archetypes-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Archetypes will be dynamically inserted here -->
-                </div>
+                    </div>
             </section>
 
-            <!-- Laws Section -->
             <section id="laws" class="content-section">
                 <h2 class="text-4xl font-title text-amber-400 mb-6">The 24 Laws of Seduction</h2>
                 <div id="laws-list" class="space-y-4">
-                    <!-- Laws will be dynamically inserted here -->
-                </div>
+                    </div>
             </section>
             
-            <!-- Videos Section -->
             <section id="videos" class="content-section">
                 <h2 class="text-4xl font-title text-amber-400 mb-6">Curated Videos</h2>
                 <div id="videos-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <!-- Videos will be dynamically inserted here -->
-                </div>
+                    </div>
             </section>
 
-            <!-- Scenarios Section -->
             <section id="scenarios" class="content-section">
                  <h2 class="text-4xl font-title text-amber-400 mb-6">Practice Scenarios</h2>
                  <div id="scenario-container" class="bg-gray-800 p-8 rounded-lg shadow-2xl border border-gray-700">
-                    <!-- Scenarios will be dynamically loaded here -->
-                 </div>
+                    </div>
             </section>
 
-            <!-- Journal Section -->
             <section id="journal" class="content-section">
                 <h2 class="text-4xl font-title text-amber-400 mb-6">Private Journal</h2>
                 <div class="bg-gray-800 p-6 rounded-lg shadow-2xl border border-gray-700">
@@ -171,13 +163,12 @@
         </main>
     </div>
 
-    <!-- Modal for details -->
     <div id="modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
         <div id="modal-content" class="bg-gray-800 text-gray-300 rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-gray-700">
             <div class="p-6">
                 <div class="flex justify-between items-start">
                     <h3 id="modal-title" class="text-3xl font-title text-amber-400 mb-4"></h3>
-                    <button id="modal-close" class="text-gray-400 hover:text-white text-3xl">&times;</button>
+                    <button id="modal-close" class="text-gray-400 hover:text-white text-3xl">×</button>
                 </div>
                 <div id="modal-body" class="prose prose-invert max-w-none text-gray-300"></div>
             </div>
@@ -227,7 +218,6 @@
             { title: "24. Beware the Aftereffects", description: "When the seduction is over, you must manage the landing. A clumsy ending can create resentment and a desire for revenge. Part artfully or transition them into a new reality." },
         ];
 
-        // UPDATED: More scenarios added
         const scenariosData = [
             {
                 scenario: "You're at a social event and see someone you're interested in across the room. They are surrounded by friends and seem engaged in conversation. What is your opening move?",
@@ -256,7 +246,7 @@
                     { text: "Gently poke fun at their niche interest to create a playful dynamic.", correct: false, feedback: "This is likely to offend them and make them feel judged, which is the opposite of seductive." }
                 ]
             },
-            {
+             {
                 scenario: "You're talking with your target and a mutual acquaintance joins the conversation. The acquaintance is clearly attracted to you. How do you leverage this?",
                 options: [
                     { text: "Ignore the acquaintance and focus all your energy on your target.", correct: false, feedback: "This misses a key opportunity. Ignoring the other person can seem rude and closes off a strategic angle." },
@@ -511,4 +501,3 @@
     </script>
 </body>
 </html>
-
