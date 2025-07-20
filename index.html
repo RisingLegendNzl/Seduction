@@ -76,6 +76,7 @@
 <body class="text-gray-300">
 
     <div id="app-container" class="min-h-screen bg-gray-900">
+        <!-- Header -->
         <header class="bg-gray-800/50 backdrop-blur-sm shadow-lg sticky top-0 z-50">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
@@ -92,6 +93,7 @@
             </div>
         </header>
         
+        <!-- Mobile Bottom Navigation -->
         <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-gray-800 shadow-t-lg z-50 flex justify-around p-2">
             <a class="nav-item flex-1 text-center p-2 text-xs active" data-target="home">Home</a>
             <a class="nav-item flex-1 text-center p-2 text-xs" data-target="archetypes">Archetypes</a>
@@ -102,7 +104,9 @@
         </nav>
 
 
+        <!-- Main Content -->
         <main class="container mx-auto p-4 sm:p-6 lg:p-8 pb-24 md:pb-8">
+            <!-- Home Section -->
             <section id="home" class="content-section active fade-in">
                 <div class="bg-gray-800 p-8 rounded-lg shadow-2xl border border-gray-700">
                     <h2 class="text-4xl font-title text-amber-400 mb-4">Welcome to the Art of Seduction</h2>
@@ -112,7 +116,7 @@
                         <li><strong class="text-amber-400">Archetypes:</strong> Discover the 9 types of seducers and identify your own potential strengths.</li>
                         <li><strong class="text-amber-400">The 24 Laws:</strong> Learn the step-by-step process of a successful seduction.</li>
                         <li><strong class="text-amber-400">Videos:</strong> Watch curated content to see the principles in action.</li>
-                        <li><strong class="text-amber-400">Practice:</strong> Test your knowledge with interactive scenarios.</li>
+                        <li><strong class="text-amber-400">Practice:</strong> Test your knowledge with a scenario for every law.</li>
                         <li><strong class="text-amber-400">Journal:</strong> Keep a private log of your observations and experiences.</li>
                     </ul>
                     <div class="mt-8 text-center">
@@ -124,30 +128,39 @@
                 </div>
             </section>
 
+            <!-- Archetypes Section -->
             <section id="archetypes" class="content-section">
                 <h2 class="text-4xl font-title text-amber-400 mb-6">The 9 Seducer Archetypes</h2>
                 <div id="archetypes-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    </div>
+                    <!-- Archetypes will be dynamically inserted here -->
+                </div>
             </section>
 
+            <!-- Laws Section -->
             <section id="laws" class="content-section">
                 <h2 class="text-4xl font-title text-amber-400 mb-6">The 24 Laws of Seduction</h2>
                 <div id="laws-list" class="space-y-4">
-                    </div>
+                    <!-- Laws will be dynamically inserted here -->
+                </div>
             </section>
             
+            <!-- Videos Section -->
             <section id="videos" class="content-section">
                 <h2 class="text-4xl font-title text-amber-400 mb-6">Curated Videos</h2>
                 <div id="videos-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    </div>
+                    <!-- Videos will be dynamically inserted here -->
+                </div>
             </section>
 
+            <!-- Scenarios Section -->
             <section id="scenarios" class="content-section">
                  <h2 class="text-4xl font-title text-amber-400 mb-6">Practice Scenarios</h2>
                  <div id="scenario-container" class="bg-gray-800 p-8 rounded-lg shadow-2xl border border-gray-700">
-                    </div>
+                    <!-- Scenarios will be dynamically loaded here -->
+                 </div>
             </section>
 
+            <!-- Journal Section -->
             <section id="journal" class="content-section">
                 <h2 class="text-4xl font-title text-amber-400 mb-6">Private Journal</h2>
                 <div class="bg-gray-800 p-6 rounded-lg shadow-2xl border border-gray-700">
@@ -163,12 +176,13 @@
         </main>
     </div>
 
+    <!-- Modal for details -->
     <div id="modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
         <div id="modal-content" class="bg-gray-800 text-gray-300 rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-gray-700">
             <div class="p-6">
                 <div class="flex justify-between items-start">
                     <h3 id="modal-title" class="text-3xl font-title text-amber-400 mb-4"></h3>
-                    <button id="modal-close" class="text-gray-400 hover:text-white text-3xl">×</button>
+                    <button id="modal-close" class="text-gray-400 hover:text-white text-3xl">&times;</button>
                 </div>
                 <div id="modal-body" class="prose prose-invert max-w-none text-gray-300"></div>
             </div>
@@ -219,60 +233,130 @@
         ];
 
         const scenariosData = [
-            {
-                scenario: "You're at a social event and see someone you're interested in across the room. They are surrounded by friends and seem engaged in conversation. What is your opening move?",
-                options: [
-                    { text: "Wait for them to be alone, then walk over and directly introduce yourself.", correct: false, feedback: "Too direct. This can put them on the defensive. A more subtle approach is needed (Law 2)." },
-                    { text: "Approach their group, join the conversation naturally, and slowly pivot your attention to your target.", correct: true, feedback: "Excellent. This is an indirect approach that creates a false sense of security (Law 2)." },
-                    { text: "Send them a drink via the waiter with a mysterious note.", correct: false, feedback: "While intriguing, this can come off as cheesy or too forward. It's better to establish a presence first." },
-                    { text: "Try to make prolonged eye contact from across the room until they come to you.", correct: false, feedback: "This can be perceived as creepy rather than seductive. It puts too much pressure on them." }
-                ]
-            },
-            {
-                scenario: "You've been on a couple of casual dates. Things are going well, but you want to deepen the intrigue. What do you do?",
-                options: [
-                    { text: "Tell them exactly how much you like them and that you want to be exclusive.", correct: false, feedback: "Too soon. This removes all mystery and can kill the tension you've built." },
-                    { text: "Become slightly less available and more unpredictable with your communication.", correct: true, feedback: "Perfect. Sending mixed signals and keeping them in suspense makes you an object of fascination (Laws 3 & 9)." },
-                    { text: "Shower them with expensive gifts to show how much you care.", correct: false, feedback: "This can seem like you're trying to buy their affection and lacks subtlety (violates Law 11's spirit)." },
-                    { text: "Talk constantly about your past relationships to show you're experienced.", correct: false, feedback: "This is a major error. It makes you seem hung up on the past and not focused on them." }
-                ]
-            },
-            {
-                scenario: "Your target mentions they have a deep passion for a niche subject you know nothing about (e.g., 18th-century poetry). How do you proceed?",
-                options: [
-                    { text: "Pretend you are also an expert on the topic.", correct: false, feedback: "Risky. You will likely be exposed as a fraud, destroying all trust." },
-                    { text: "Show genuine curiosity, ask intelligent questions, and let them teach you. Later, surprise them with a thoughtful follow-up.", correct: true, feedback: "Correct. You enter their spirit, making them feel valued and understood (Law 7). The follow-up shows attention to detail (Law 11)." },
-                    { text: "Quickly change the subject to something you are more comfortable with.", correct: false, feedback: "This shows you are not truly interested in them, only in talking about yourself." },
-                    { text: "Gently poke fun at their niche interest to create a playful dynamic.", correct: false, feedback: "This is likely to offend them and make them feel judged, which is the opposite of seductive." }
-                ]
-            },
-             {
-                scenario: "You're talking with your target and a mutual acquaintance joins the conversation. The acquaintance is clearly attracted to you. How do you leverage this?",
-                options: [
-                    { text: "Ignore the acquaintance and focus all your energy on your target.", correct: false, feedback: "This misses a key opportunity. Ignoring the other person can seem rude and closes off a strategic angle." },
-                    { text: "Politely excuse yourself from the conversation to avoid any awkwardness.", correct: false, feedback: "This shows a lack of social grace and an inability to handle complex situations." },
-                    { text: "Engage warmly with the acquaintance for a few moments, showing you are desirable, before turning your primary attention back to your target.", correct: true, feedback: "Perfect. You are creating a 'triangle' of desire (Law 4). Showing that others desire you makes you more valuable and intriguing to your target." },
-                    { text: "Leave with the new acquaintance to make your original target jealous.", correct: false, feedback: "Too aggressive. This will likely create resentment rather than attraction. The goal is to spark interest, not anger." }
-                ]
-            },
-            {
-                scenario: "Your target is very self-sufficient and seems to have it all together, making it hard to find a 'need' to fill. How do you create an opening?",
-                options: [
-                    { text: "Confess a personal problem or weakness, making yourself seem more human and inviting them to offer advice or comfort.", correct: true, feedback: "Excellent. This is 'Disarming Through Strategic Weakness' (Law 13). It makes you relatable and allows the target to lower their guard and play the role of the helper." },
-                    { text: "Brag about your own accomplishments to prove you are their equal.", correct: false, feedback: "This creates competition, not connection. It's more likely to intimidate or annoy them than to attract them." },
-                    { text: "Criticize something in their 'perfect' life to show you see a flaw they don't.", correct: false, feedback: "This is arrogant and will put them on the defensive immediately. You must create need subtly, not through direct criticism." },
-                    { text: "Wait for them to show a sign of weakness, however long it takes.", correct: false, feedback: "Too passive. Seduction requires you to actively shape the dynamic, not just wait for opportunities to fall in your lap." }
-                ]
-            },
-            {
-                scenario: "You've successfully made your target intensely interested. They are now contacting you frequently and seeking you out. What is the correct move at this stage?",
-                options: [
-                    { text: "Increase the intensity, spending as much time with them as possible to solidify the bond.", correct: false, feedback: "Incorrect. This smothers the flame. Constant presence removes the tension and mystery you've built." },
-                    { text: "Take a calculated step back. Become slightly less available and let them pursue you, filling their imagination with thoughts of you.", correct: true, feedback: "Precisely. This is 'Giving Them Space to Fall' (Law 21). Their active pursuit will cement their feelings for you far more than your continued presence." },
-                    { text: "Test their devotion by asking them to do a large favor for you.", correct: false, feedback: "This can seem manipulative and transactional. While 'Prove Yourself' (Law 16) is a valid step, it's usually something you do for them, not the other way around at this stage." },
-                    { text: "Make a bold move and escalate the relationship physically and emotionally.", correct: false, feedback: "Potentially too soon. While the bold move is a key step (Law 23), it's often more powerful after a period of withdrawal and pursuit from their side." }
-                ]
-            }
+            // Phase 1: Separation
+            { law: 1, scenario: "You are at a party, observing potential targets. Who is the most promising person to focus your energy on?", options: [
+                { text: "The loud, confident person who is the center of attention and seems perfectly happy.", correct: false, feedback: "Incorrect. A perfectly satisfied person is difficult to seduce. You need someone with a void you can fill." },
+                { text: "The quiet person in the corner who seems a bit bored and is subtly complaining about their routine life to a friend.", correct: true, feedback: "Correct. This person is expressing discontent and a desire for escape. They are an ideal target who will see you as a source of novelty and excitement." },
+                { text: "The person who is aggressively flirting with everyone, moving from one group to the next.", correct: false, feedback: "Incorrect. While they seem available, their scattered attention makes it hard to create a focused, deep connection." }
+            ]},
+            { law: 2, scenario: "You've joined a new hobby class to meet someone you're interested in. What is the best initial approach?", options: [
+                { text: "Immediately ask them out for coffee after the first class.", correct: false, feedback: "Too direct. A direct approach can seem needy and will put their guard up." },
+                { text: "Focus on the hobby, but make occasional, friendly conversation with them about the class itself, establishing a comfortable presence.", correct: true, feedback: "Perfect. This is an indirect approach. You are creating a false sense of security by making the interaction seem neutral and non-threatening." },
+                { text: "Shower them with compliments on their skills in the hobby to get their attention.", correct: false, feedback: "This is too obvious. It signals your interest too early and can make them suspicious of your motives." }
+            ]},
+            { law: 3, scenario: "After a few pleasant, friendly conversations, how do you introduce a spark of seductive tension?", options: [
+                { text: "Be consistently friendly and available to build on the comfort you've established.", correct: false, feedback: "Incorrect. Consistency is predictable and leads to friendship. You need to break the pattern to create intrigue." },
+                { text: "Hold their gaze a moment longer than usual, then abruptly end the conversation and leave.", correct: true, feedback: "Excellent. This is a classic mixed signal. The intense eye contact suggests deep interest, while the abrupt departure creates confusion and makes them think about you." },
+                { text: "Confess your strong feelings for them to be honest and direct.", correct: false, feedback: "This destroys all tension and puts them on the spot. It's an anti-seductive move." }
+            ]},
+            { law: 4, scenario: "You're talking with your target when a mutual acquaintance joins and flirts with you. How do you leverage this?", options: [
+                { text: "Engage warmly with the acquaintance for a moment, showing you are desirable, before turning your primary attention back to your target.", correct: true, feedback: "Perfect. You are creating a 'triangle' of desire. Showing that others desire you makes you more valuable and intriguing to your target." },
+                { text: "Ignore the acquaintance and focus all your energy on your target.", correct: false, feedback: "This misses a key opportunity. Ignoring the other person can seem rude and closes off a strategic angle." },
+                { text: "Leave with the new acquaintance to make your original target jealous.", correct: false, feedback: "Too aggressive. This will likely create resentment rather than attraction. The goal is to spark interest, not anger." }
+            ]},
+            { law: 5, scenario: "Your target seems content with their life. How do you subtly stir discontent and create a need for what you offer?", options: [
+                { text: "Point out the flaws in their current life or partner directly.", correct: false, feedback: "Incorrect. Direct criticism will only make them defensive and resentful." },
+                { text: "Talk passionately about your own exciting adventures and unconventional experiences, making their life seem dull by comparison.", correct: true, feedback: "Correct. By embodying a more exciting way of life, you create a subtle anxiety and a longing for the adventure you represent, without ever criticizing them directly." },
+                { text: "Buy them expensive gifts to show them what they are missing.", correct: false, feedback: "This is a clumsy approach that seems like you're trying to buy their affection rather than creating a genuine psychological need." }
+            ]},
+            { law: 6, scenario: "You want to compliment your target's appearance. What is the most seductive way to do it?", options: [
+                { text: "Give a direct, strong compliment: 'You are the most beautiful person I've ever seen.'", correct: false, feedback: "While flattering, this can seem generic and insincere. It leaves no room for imagination." },
+                { text: "Say something like, 'I'm not sure if anyone's ever told you, but the way you... (e.g., listen/smile) is incredibly captivating.'", correct: true, feedback: "Perfect. This is insinuation. It's specific, seems like a unique observation, and plants a seed of thought that makes them ponder your words and your perception of them." },
+                { text: "Use a crude or overly suggestive remark to show your physical attraction.", correct: false, feedback: "This is anti-seductive. It's vulgar and shows a lack of sophistication and respect for the process." }
+            ]},
+            { law: 7, scenario: "Your target has a deep passion for a niche subject you know nothing about. How do you proceed?", options: [
+                { text: "Pretend you are also an expert on the topic.", correct: false, feedback: "Risky. You will likely be exposed as a fraud, destroying all trust." },
+                { text: "Show genuine curiosity, ask intelligent questions, and let them teach you. Later, surprise them with a thoughtful follow-up.", correct: true, feedback: "Correct. You are entering their spirit, valuing what they value. This makes them feel understood and lowers their defenses." },
+                { text: "Quickly change the subject to something you are more comfortable with.", correct: false, feedback: "This shows you are not truly interested in them, only in yourself." }
+            ]},
+            { law: 8, scenario: "How do you create a powerful sense of temptation for a future meeting?", options: [
+                { text: "Plan every detail of the date and send them a full itinerary so they know what to expect.", correct: false, feedback: "Incorrect. This removes all mystery and anticipation. Temptation thrives on the unknown." },
+                { text: "Hint at a unique and slightly mysterious experience you have in mind, without giving away the details.", correct: true, feedback: "Excellent. By creating a vague but tantalizing glimpse of a future pleasure, you engage their imagination and make them long to discover what you have in store." },
+                { text: "Ask them what they want to do and let them plan the entire date.", correct: false, feedback: "This is passive and unseductive. You are the one who is supposed to be leading them into a new world." }
+            ]},
+            // Phase 2: The Hook
+            { law: 9, scenario: "You've had a wonderful date and the target is clearly smitten. What is your next move?", options: [
+                { text: "Call them the next day to tell them what a great time you had and schedule the next date immediately.", correct: false, feedback: "This is predictable. It gives them a sense of security, which is the enemy of suspense." },
+                { text: "Wait a few days, then send a brief, slightly ambiguous message that makes them wonder what you're thinking.", correct: true, feedback: "Perfect. The silence creates anxiety and suspense. The ambiguous message keeps you on their mind, making them obsessed with what comes next." },
+                { text: "Flood their social media with likes and comments to show how much you're thinking of them.", correct: false, feedback: "This is the modern version of being a suffocator. It's needy and removes all mystery." }
+            ]},
+            { law: 10, scenario: "You want to make your target feel unique and understood. How should you use your words?", options: [
+                { text: "Use generic, flattering phrases like 'You're so smart and funny.'", correct: false, feedback: "This is weak and sounds like something they've heard a thousand times. It has no real power." },
+                { text: "Create a special nickname for them or use elevated, poetic language to describe a specific quality they have.", correct: true, feedback: "Correct. Using charged, personalized language creates a secret world between the two of you. It inflates their ego in a way that feels unique and powerful." },
+                { text: "Focus on facts and logical conversation to show your intelligence.", correct: false, feedback: "Seduction is not a debate. You need to appeal to their emotions, not just their intellect. Logic is cold; seductive language is hot." }
+            ]},
+            { law: 11, scenario: "You want to give your target a gift. What is the best choice?", options: [
+                { text: "A very expensive, generic luxury item like a watch or a handbag.", correct: false, feedback: "This can seem like you're trying to buy their affection. It lacks personal thought." },
+                { text: "A small, inexpensive item that relates to a passing comment they made weeks ago, showing you were listening.", correct: true, feedback: "Perfect. This shows incredible attention to detail. The thoughtfulness of the gift far outweighs its monetary value and has a powerful seductive effect." },
+                { text: "A gift certificate so they can choose what they really want.", correct: false, feedback: "This is lazy and unseductive. It shows a complete lack of effort and imagination." }
+            ]},
+            { law: 12, scenario: "You are planning a date. Which location is the most seductive?", options: [
+                { text: "A popular, noisy sports bar.", correct: false, feedback: "Incorrect. This environment is distracting and lacks any sense of magic or intimacy." },
+                { text: "A quiet, beautifully designed art gallery, followed by a drink at a dimly lit, secluded cocktail bar.", correct: true, feedback: "Excellent. You are associating yourself with art, beauty, and intimacy. This poetizes your presence and makes the encounter feel special and elevated." },
+                { text: "Your messy apartment to watch a movie.", correct: false, feedback: "This shows a lack of effort and can make the target feel uncomfortable. The environment you create is a reflection of you." }
+            ]},
+            { law: 13, scenario: "Your target is very successful and intimidating. How do you make them feel comfortable and lower their defenses?", options: [
+                { text: "Try to impress them with your own accomplishments and success.", correct: false, feedback: "This creates a competitive dynamic, not a seductive one. They are used to people trying to impress them." },
+                { text: "Confess a small, relatable vulnerability or a past failure that makes you seem more human.", correct: true, feedback: "Correct. This strategic weakness is disarming. It makes you seem real and non-threatening, and it invites them into a position of power, which makes them feel comfortable." },
+                { text: "Act cold and aloof to show that you are not intimidated by them.", correct: false, feedback: "This can come across as arrogance and will likely push them away. There is a difference between being a challenge and being unpleasant." }
+            ]},
+            { law: 14, scenario: "You want to create a perfect, dreamlike moment. What do you do?", options: [
+                { text: "Take them on a surprise trip to a location that feels like it's from a movie, paying attention to every sensory detail.", correct: true, feedback: "Perfect. You are creating a perfect illusion, a moment that is elevated from everyday reality. This blurs the line between fantasy and reality, making them desire the fantasy you create." },
+                { text: "Have a very honest, down-to-earth conversation about the future of your relationship.", correct: false, feedback: "This is the opposite of illusion. It brings everything crashing back down to cold, hard reality." },
+                { text: "Go to a brightly lit, crowded chain restaurant for dinner.", correct: false, feedback: "This is a mundane, forgettable experience. Seduction requires creating moments that are unforgettable." }
+            ]},
+            { law: 15, scenario: "Your target's life is very busy and they are always surrounded by friends and family. What is your goal?", options: [
+                { text: "Try to become best friends with all of their friends and family to get their approval.", correct: false, feedback: "While being liked is good, your goal is not to be absorbed into their life, but to create a new one with just the two of you." },
+                { text: "Arrange an experience that takes them away from their familiar environment for a day or a weekend.", correct: true, feedback: "Correct. By isolating the victim, you temporarily cut them off from the outside influences of their life. In this isolated space, your influence becomes much more potent." },
+                { text: "Only see them in group settings to show how social you are.", correct: false, feedback: "You will never create a deep, seductive bond in a group setting. Seduction requires focused, one-on-one attention." }
+            ]},
+            // Phase 3: The Precipice
+            { law: 16, scenario: "Your target expresses doubt about your intentions or character. What is the best way to respond?", options: [
+                { text: "Tell them they are wrong and argue your case with logic.", correct: false, feedback: "Words are cheap. Arguing will only increase their suspicion and make you seem defensive." },
+                { text: "Perform a selfless or difficult action that clearly demonstrates your devotion or character without saying a word.", correct: true, feedback: "Excellent. This is 'Prove Yourself'. A single, decisive action is far more convincing than any amount of words and will erase all their doubts." },
+                { text: "Withdraw and give them space, hoping they will get over their doubts on their own.", correct: false, feedback: "This can be interpreted as guilt or a lack of interest. At a moment of doubt, action is required." }
+            ]},
+            { law: 17, scenario: "Your target had a difficult childhood and craves a sense of stability they never had. How can you use this?", options: [
+                { text: "Act as a stable, protective, and slightly parental figure, making them feel safe and cared for.", correct: true, feedback: "Correct. You are effecting a regression to a childhood need. By providing the security they lacked, you create a powerful and deep bond of dependency." },
+                { text: "Challenge them and act unpredictably to keep them on their toes.", correct: false, feedback: "This is the wrong approach for this specific target. Their deep-seated need is for security, not more chaos." },
+                { text: "Share your own difficult childhood stories to show that you are the same as them.", correct: false, feedback: "While this can create a connection, it doesn't fulfill their need. They are not looking for a fellow victim, but for a source of strength." }
+            ]},
+            { law: 18, scenario: "Your target is a 'good person' who always follows the rules. How do you create a stronger bond?", options: [
+                { text: "Respect their boundaries completely and never push them to do anything they are uncomfortable with.", correct: false, feedback: "While you should never be forceful, playing it too safe will keep the relationship in a platonic zone. People secretly desire to be led astray." },
+                { text: "Gently lead them into a small, shared adventure that feels slightly forbidden or rebellious.", correct: true, feedback: "Perfect. By stirring up the transgressive and taboo, you make them your partner in crime. The shared secret and the thrill of breaking a rule creates an incredibly powerful bond." },
+                { text: "Impress them with your own high moral character.", correct: false, feedback: "This reinforces their own rigid behavior. Seduction often involves a release from the constraints of everyday morality." }
+            ]},
+            { law: 19, scenario: "You want to deepen the connection beyond the physical. What kind of lure should you use?", options: [
+                { text: "Focus on making them laugh and having a good time.", correct: false, feedback: "While important, this keeps the connection on a lighter, more superficial level." },
+                { text: "Talk about destiny, fate, or how you feel a 'cosmic connection' to them, making the seduction seem like a higher purpose.", correct: true, feedback: "Correct. Using spiritual lures elevates the seduction above mere lust. It makes the target feel that your connection is fated and unique, justifying their surrender to you." },
+                { text: "Discuss practical, long-term relationship goals.", correct: false, feedback: "This is anti-seductive. It brings the conversation back to the mundane realities of life, rather than elevating it to a higher plane." }
+            ]},
+            { law: 20, scenario: "The seduction has been going very smoothly and has become comfortable. What is a necessary next step?", options: [
+                { text: "Continue being kind and attentive to maintain the comfort and security.", correct: false, feedback: "Incorrect. Uninterrupted pleasure becomes boring. The target will start to take you for granted." },
+                { text: "Instigate a period of calculated distance or coolness, followed by a return to warmth and affection.", correct: true, feedback: "Excellent. You are mixing pleasure with pain. The anxiety caused by your distance will make the pleasure of your return immensely more powerful." },
+                { text: "End the seduction, as the best part is over.", correct: false, feedback: "This is premature. You have not yet brought them to the point of complete surrender." }
+            ]},
+            // Phase 4: The Final Act
+            { law: 21, scenario: "You have successfully mixed pleasure and pain, and the target is now obsessed and anxious for your attention. What do you do?", options: [
+                { text: "Give them the reassurance they crave and become fully available to them.", correct: false, feedback: "Incorrect. This releases all the tension you have so skillfully built. You are giving up your power too soon." },
+                { text: "Take a final, decisive step back and let them be the one to close the distance and initiate the final surrender.", correct: true, feedback: "Perfect. You are giving them space to fall. By making them the pursuer, you transfer the perceived responsibility for the final step to them, which is immensely satisfying for them and powerful for you." },
+                { text: "Accuse them of being too needy to create more drama.", correct: false, feedback: "This is cruel, not strategic. It will likely create resentment and could backfire completely." }
+            ]},
+            { law: 22, scenario: "The target's mind is consumed with thoughts of you, and they are emotionally vulnerable. What is the most effective tool now?", options: [
+                { text: "Engage them in a deep, intellectual conversation to prove your worth.", correct: false, feedback: "At this stage, their rational mind is already defeated. Words are less effective now." },
+                { text: "Use non-verbal cues: a lingering glance, a change in your tone of voice, an 'accidental' touch.", correct: true, feedback: "Correct. Physical lures bypass conscious thought and speak directly to the senses. At this moment of high emotionality, they are incredibly potent." },
+                { text: "Send them a long letter explaining all your feelings.", correct: false, feedback: "This over-explains and intellectualizes a moment that should be purely physical and intuitive." }
+            ]},
+            { law: 23, scenario: "The tension is at its absolute peak. The target is pursuing you, and their resistance is at its lowest point. What must you do?", options: [
+                { text: "Wait for them to make the first move to make sure they are ready.", correct: false, feedback: "Incorrect. Hesitation at this critical moment can ruin the entire seduction. It signals a lack of confidence and can make the target regain their senses." },
+                { text: "Make a confident and decisive bold move that ends the suspense and consummates the seduction.", correct: true, feedback: "This is the only correct move. The bold move is the climax of the entire process. It should be swift, confident, and leave no room for doubt." },
+                { text: "Ask for permission to escalate things further.", correct: false, feedback: "Asking for permission shatters the illusion and the tension. It brings the dynamic back to a mundane, polite reality, which is the opposite of seduction." }
+            ]},
+            { law: 24, scenario: "The seduction has been consummated. How do you manage the relationship now?", options: [
+                { text: "Disappear without a word to maintain your mystery.", correct: false, feedback: "This is a clumsy and cruel ending that will likely create a desire for revenge. It is not artful." },
+                { text: "Immediately start the process over again to keep the excitement high.", correct: false, feedback: "This is exhausting and unsustainable. You cannot maintain that level of intensity forever." },
+                { text: "Let the intensity down slowly and artfully, either by parting on good terms or by transitioning the dynamic into a new, less intense reality.", correct: true, feedback: "Correct. You must beware the aftereffects. A skillful landing prevents resentment and maintains your reputation. You control the end of the affair just as you controlled the beginning." }
+            ]}
         ];
         let currentScenarioIndex = 0;
 
@@ -367,7 +451,8 @@
         function loadScenario(index) {
             const data = scenariosData[index];
             scenarioContainer.innerHTML = `
-                <p class="text-lg mb-6 text-gray-400">${data.scenario}</p>
+                <p class="text-sm text-gray-500 mb-2">Scenario for Law ${data.law}</p>
+                <p class="text-lg mb-6 text-gray-300">${data.scenario}</p>
                 <div id="options-container" class="space-y-4"></div>
                 <div id="feedback-container" class="mt-6 p-4 rounded-md hidden"></div>
                 <button id="next-scenario" class="mt-6 bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold py-2 px-4 rounded-lg transition hidden">Next Scenario</button>
